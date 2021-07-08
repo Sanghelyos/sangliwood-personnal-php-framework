@@ -1,0 +1,10 @@
+#Mettez les règles que vous voulez.
+#Perso je chie dans la colle.
+
+#AddType x-mapp-php5 .php
+ 
+#Options +FollowSymlinks
+RewriteEngine On
+RewriteBase /
+#RewriteRule ^index\.php$ - [L]
+SetEnv TZ Europe/Paris
