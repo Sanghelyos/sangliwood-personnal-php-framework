@@ -9,7 +9,7 @@ use Exception;
   class Database
   {
 
-    private static $_instance = NULL;
+    private static $_instance;
     
     /**
      * PDOConnect
@@ -18,7 +18,7 @@ use Exception;
      */
     public static function Connect(): PDO {
 
-      if (self::$_instance === NULL)
+      if (!self::$_instance)
       {
         $db_config = parse_ini_file('db.ini');
         if ($db_config['enabled'] != true){

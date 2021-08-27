@@ -15,7 +15,7 @@ class MiscTools
      */
     public static function Decimal($number) {
         $whole = (int) $number;
-        return $decimal = $number - ($whole*10);
+        return $number - ($whole*10);
     }
 
 }
