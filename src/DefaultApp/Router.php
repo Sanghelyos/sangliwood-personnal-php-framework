@@ -15,7 +15,7 @@ class Router
      * @param  mixed $ctrlmth
      * @return void
      */
-    public static function Route(string $route, string $ctrlmth) {
+    public static function Route (string $route, string $ctrlmth) {
 
         $page = RequestHandler::GET('page', null);
 
@@ -24,13 +24,13 @@ class Router
             $controller_name = ucfirst(strtok($ctrlmth, '@'));
             $method = ucfirst(substr(strrchr($ctrlmth, '@'), 1));
 
-            if(file_exists("src/Controllers/$controller_name.php") && method_exists("\App\Controllers\\$controller_name", $method)){
+            if (file_exists("src/Controllers/$controller_name.php") && method_exists("\App\Controllers\\$controller_name", $method)) {
                 $controller_name = "\App\Controllers\\" . $controller_name;
                 $controller = new $controller_name;
                 $controller->$method();
                 exit;
             }
-            else{
+            else {
                 ErrorHandler::Error("Le contrôleur <span style=\"color:green;\">$controller_name</span> ou la méthode <span style=\"color:red;\">$method</span> n'existe pas.");
                 self::Redirect("index.php?page=unknown");
                 exit;
@@ -45,18 +45,18 @@ class Router
      * @param  mixed $ctrlmth
      * @return void
      */
-    public static function UnknownRoute(string $ctrlmth) {
+    public static function UnknownRoute (string $ctrlmth) {
 
             $controller_name = ucfirst(strtok($ctrlmth, '@'));
             $method = ucfirst(substr(strrchr($ctrlmth, '@'), 1));
 
-            if(file_exists("src/Controllers/$controller_name.php") && method_exists("\App\Controllers\\$controller_name", $method)){
+            if (file_exists("src/Controllers/$controller_name.php") && method_exists("\App\Controllers\\$controller_name", $method)) {
                 $controller_name = "\App\Controllers\\" . $controller_name;
                 $controller = new $controller_name;
                 $controller->$method();
                 exit;
             }
-            else{
+            else {
                 throw new Exception($controller_name . " controller or " . $method . " method doesn't exists in your Routes file");
                 exit;
             }
@@ -69,9 +69,9 @@ class Router
      * @param  mixed $url
      * @return void
      */
-    public static function Redirect(string $url) {
+    public static function Redirect (string $url) {
 
-        header('Location: '.$url);
+        header('Location: ' . $url);
         exit();
         
     }
@@ -82,7 +82,7 @@ class Router
      * @param  mixed $url
      * @return void
      */
-    public static function RedirectMetaRefresh(string $url) {
+    public static function RedirectMetaRefresh (string $url) {
         
         header('refresh:0;url='.$url);
         exit();

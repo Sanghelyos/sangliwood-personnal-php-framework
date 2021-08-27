@@ -13,7 +13,7 @@ class LocalesHandler
      *
      * @return void
      */
-    public static function Set_locales() {
+    public static function Set_locales () {
 
         $locales = Config::Get_config();
         setlocale(LC_ALL, $locales['LOCALES']);

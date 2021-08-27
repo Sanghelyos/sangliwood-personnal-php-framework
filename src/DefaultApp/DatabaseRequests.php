@@ -10,8 +10,7 @@ class DatabaseRequests
 
     private $_db;
 
-    function __construct()
-    {
+    function __construct () {
         $this->_db = Database::Connect();
     }
     
@@ -22,13 +21,13 @@ class DatabaseRequests
      * @param  mixed $sql
      * @return mixed
      */
-    public function SelectAll($sql) {
+    public function SelectAll ($sql) {
 
         try {
             $req = $this->_db->prepare($sql);
             $req->execute();
             $row = $req->rowCount();
-            if($row > 0){
+            if ($row > 0) {
                 $data = $req->fetchAll();
                 $req->closeCursor();
                 return $data;
@@ -46,7 +45,7 @@ class DatabaseRequests
      * @param  mixed $sql
      * @return mixed
      */
-    public function Select($sql) {
+    public function Select ($sql) {
 
         try {
             $req = $this->_db->prepare($sql);
@@ -73,7 +72,7 @@ class DatabaseRequests
      * @param  mixed $sql
      * @return mixed
      */
-    public function Delete($sql) {
+    public function Delete ($sql) {
 
         try {
             $req = $this->_db->prepare($sql);
@@ -94,7 +93,7 @@ class DatabaseRequests
      * @param  array $params
      * @return mixed
      */
-    public function Insert($sql, array $params) {
+    public function Insert ($sql, array $params) {
 
         try {
             $req = $this->_db->prepare($sql);

@@ -13,7 +13,7 @@ class ErrorHandler
      * @param  string $value
      * @return void
      */
-    public static function Error(string $value) {
+    public static function Error (string $value) {
 
         $_SESSION['error'] = $value;
 
@@ -24,12 +24,12 @@ class ErrorHandler
      *
      * @return void
      */
-    public static function Error_print() {
+    public static function Error_print () {
 
-        if(isset($_SESSION['error'])){
+        if (isset($_SESSION['error'])) {
             echo $_SESSION['error'];
             unset($_SESSION['error']);
-          }
+        }
 
     }
 
