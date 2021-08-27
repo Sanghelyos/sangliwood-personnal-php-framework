@@ -17,7 +17,7 @@ class Mailer
      * @param  string $message
      * @return void
      */
-    public static function SendMail(string $to, string $from, string $objet, string $message) {
+    public static function SendMail (string $to, string $from, string $objet, string $message) {
 
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
@@ -35,8 +35,8 @@ class Mailer
      * @return void
      */
     public static function Check_null($var, $target) {
-        foreach($var as $check){
-            if($check === NULL){
+        foreach ($var as $check) {
+            if ($check === NULL) {
                 ErrorHandler::Error("Une erreur est survenue !");
                 Router::Redirect($target);
             }

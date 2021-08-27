@@ -10,7 +10,7 @@ class ExampleController {
 
     // protected $_modelName = \Models\Home::class;
 
-    public function index(){
+    public function index () {
 
         $news = new ExampleNews();
         $newsData = $news->getNews();

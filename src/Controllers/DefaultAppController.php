@@ -7,7 +7,7 @@ use App\DefaultApp\Renderer;
 //  Définition de la classe (ici controller et non model)
 class DefaultAppController{
 
-    public function NotFound(){
+    public function NotFound () {
 
         Renderer::Render('404');
     }

@@ -16,26 +16,26 @@ class Renderer
      * @param  bool $isfooter
      * @return void
      */
-    public static function Render(string $content_path, array $data = [], bool $isnavbar = true, bool $isfooter = true): void {
+    public static function Render (string $content_path, array $data = [], bool $isnavbar = true, bool $isfooter = true): void {
 
         extract($data);
 
         //navbar
-        if($isnavbar === true){
+        if ($isnavbar === true) {
 
             ob_start();
             require('vue/layouts/navbar.html.php');
             $navbar = ob_get_clean();
         }
         //footer
-        if($isfooter === true){
+        if ($isfooter === true) {
             ob_start();
             require('vue/layouts/footer.html.php');
             $footer = ob_get_clean();
         }
 
         ob_start();
-        require('vue/content/'.$content_path.'.html.php');
+        require('vue/content/' . $content_path . '.html.php');
         $page_content = ob_get_clean();
         require('vue/layouts/layout.html.php');
     }
@@ -55,22 +55,22 @@ class Renderer
 
         extract($data);
         //navbar
-        if($isnavbar === true){
+        if ($isnavbar === true) {
             ob_start();
             require('vue/layouts/navbar.html.php');
             $navbar = ob_get_clean();
         }
-        else{
+        else {
             $navbar = NULL;
         }
 
         //footer
-        if($isfooter === true){
+        if ($isfooter === true) {
             ob_start();
             require('vue/layouts/footer.html.php');
             $footer = ob_get_clean();
         }
-        else{
+        else {
             $footer = NULL;
         }
 
@@ -80,9 +80,9 @@ class Renderer
         // require('vue/layouts/layout.html.php');
 
         ob_start();
-        require('vue/content/'.$content_path.'.html.php');
+        require('vue/content/' . $content_path . '.html.php');
         $page_content = ob_get_clean();
-        require('vue/layouts/'.$layout.'.html.php');
+        require('vue/layouts/' . $layout . '.html.php');
     }
 
 

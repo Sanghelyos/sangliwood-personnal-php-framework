@@ -14,7 +14,7 @@ class RequestHandler
      * @param  mixed $else
      * @return mixed
      */
-    public static function POST(string $property, $else) {
+    public static function POST (string $property, $else) {
         return !empty($_POST[$property]) ? $_POST[$property] : $else;
     }
     
@@ -27,7 +27,7 @@ class RequestHandler
      * @param  mixed $else
      * @return mixed
      */
-    public static function GET(string $property, $else) {
+    public static function GET (string $property, $else) {
         return !empty($_GET[$property]) ? $_GET[$property] : $else;
     }
     
@@ -39,7 +39,7 @@ class RequestHandler
      * @param  mixed $else
      * @return mixed
      */
-    public static function REQUEST(string $property, $else) {
+    public static function REQUEST (string $property, $else) {
         return !empty($_REQUEST[$property]) ? $_REQUEST[$property] : $else;
     }
     
@@ -51,7 +51,7 @@ class RequestHandler
      * @param  mixed $else
      * @return mixed
      */
-    public static function FILES(string $property, $else) {
+    public static function FILES (string $property, $else) {
         return !empty($_FILES[$property]) ? $_FILES[$property] : $else;
     }
     
@@ -63,7 +63,7 @@ class RequestHandler
      * @param  mixed $value
      * @return void
      */
-    public static function SET_SESSION(string $property, $value) {
+    public static function SET_SESSION (string $property, $value) {
         $_SESSION[$property] = $value;
     }
     
@@ -74,7 +74,7 @@ class RequestHandler
      * @param  string $property
      * @return mixed
      */
-    public static function GET_SESSION(string $property) {
+    public static function GET_SESSION (string $property) {
         return $_SESSION[$property];
     }
 

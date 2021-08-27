@@ -16,7 +16,7 @@ namespace App\DefaultApp;
      *
      * @return array
      */
-    public static function Get_config() :array {
+    public static function Get_config () :array {
 
       self::$_config = parse_ini_file('config.ini');
       return self::$_config;

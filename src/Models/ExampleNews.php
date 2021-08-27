@@ -25,31 +25,45 @@ class ExampleNews
             // $reqData = $this->_dbHandler->SelectAll('SELECT * FROM news ORDER BY date ASC');
 
             // for no database example
+            // for no database example
+            $googleParsedUrl = parse_url("https://www.google.fr");
+            $googleUrl = $googleParsedUrl['host'];
+            $placeholderImgParsedUrl = parse_url("https://www.tibs.org.tw/images/default.jpg");
+            $placeholderImgUrl = $placeholderImgParsedUrl['scheme'] . "://" . $placeholderImgParsedUrl['host'] . "/" . $placeholderImgParsedUrl['path'];
+
             $reqData = [
-                        ['id' => "1",
-                        'title' => "title 1",
-                        "content" => "content 1",
-                        "date" => date('d-m-Y h:i'),
-                        "link" => "www.google.fr",
-                        "img" => "https://www.tibs.org.tw/images/default.jpg"],
-                        ["id" => "2",
-                        'title' => "title 2",
-                        "content" => "content 2",
-                        "date" => date('d-m-Y h:i'),
-                        "link" => "www.google.fr",
-                        "img" => "https://www.tibs.org.tw/images/default.jpg"],
-                        ["id" => "3",
-                        'title' => "title 3",
-                        "content" => "content 3",
-                        "date" => date('d-m-Y h:i'),
-                        "link" => "www.google.fr",
-                        "img" => "https://www.tibs.org.tw/images/default.jpg"],
-                        ["id" => "4",
-                        'title' => "title 4",
-                        "content" => "content 4",
-                        "date" => date('d-m-Y h:i'),
-                        "link" => "www.google.fr",
-                        "img" => "https://www.tibs.org.tw/images/default.jpg"],
+                        [
+                            'id' => "1",
+                            'title' => "title 1",
+                            "content" => "content 1",
+                            "date" => date('d-m-Y h:i'),
+                            "link" => $googleUrl,
+                            "img" => $placeholderImgUrl
+                        ],
+                        [
+                            "id" => "2",
+                            'title' => "title 2",
+                            "content" => "content 2",
+                            "date" => date('d-m-Y h:i'),
+                            "link" => $googleUrl,
+                            "img" => $placeholderImgUrl
+                        ],
+                        [
+                            "id" => "3",
+                            'title' => "title 3",
+                            "content" => "content 3",
+                            "date" => date('d-m-Y h:i'),
+                            "link" => $googleUrl,
+                            "img" => $placeholderImgUrl
+                        ],
+                        [
+                            "id" => "4",
+                            'title' => "title 4",
+                            "content" => "content 4",
+                            "date" => date('d-m-Y h:i'),
+                            "link" => $googleUrl,
+                            "img" => $placeholderImgUrl
+                        ]
             ];
             foreach($reqData as $data){
                 $object[$data['id']] = new ExampleNews();
@@ -76,30 +90,64 @@ class ExampleNews
 
         }
         
-
-        public function getTitle() {
+                
+        /**
+         * getTitle
+         *
+         * @return string
+         */
+        public function getTitle(): string {
             return $this->_title;
         }
-
-        public function setTitle($title) {
+        
+        
+        /**
+         * setTitle
+         *
+         * @param  string $title
+         * @return object
+         */
+        public function setTitle(string $title): object {
             $this->_title = $title;
             return $this;
         }
-
-        public function getContent() {
+                
+        /**
+         * getContent
+         *
+         * @return string
+         */
+        public function getContent(): string {
             return $this->_content;
         }
-
-        public function setContent($content) {
+        
+        /**
+         * setContent
+         *
+         * @param  string $content
+         * @return object
+         */
+        public function setContent(string $content): object {
             $this->_content = $content;
             return $this;
         }
-
-        public function getId() {
+               
+        /**
+         * getId
+         *
+         * @return int
+         */
+        public function getId(): int {
             return $this->_id;
         }
-
-        public function setId($id) {
+        
+        /**
+         * setId
+         *
+         * @param  int $id
+         * @return object
+         */
+        public function setId(int $id): object {
             $this->_id = $id;
             return $this;
         }
@@ -113,22 +161,44 @@ class ExampleNews
             $this->_date = $date;
             return $this;
         }
-
-        public function setImg($img) {
+        
+        /**
+         * setImg
+         *
+         * @param  string $img
+         * @return object
+         */
+        public function setImg(string $img): object {
             $this->_img = $img;
             return $this;
         }
-
-        public function getImg() {
+        
+        /**
+         * getImg
+         *
+         * @return string
+         */
+        public function getImg(): string {
             return $this->_img;
         }
-
-        public function setLink($link) {
+        
+        /**
+         * setLink
+         *
+         * @param  mixed $link
+         * @return object
+         */
+        public function setLink(string $link): object {
             $this->_link = $link;
             return $this;
         }
-
-        public function getLink() {
+        
+        /**
+         * getLink
+         *
+         * @return string
+         */
+        public function getLink(): string {
             return $this->_link;
         }
 
