@@ -12,19 +12,18 @@ class ExampleNews
 
 
 
-        public function __construct(){
+        public function __construct () {
 
             // if using Database
             // $this->_dbHandler = new DatabaseRequests();
 
         }
 
-        public function getNews() {
+        public function getNews () {
             
             // using DatabaseRequest module for requests
             // $reqData = $this->_dbHandler->SelectAll('SELECT * FROM news ORDER BY date ASC');
 
-            // for no database example
             // for no database example
             $googleParsedUrl = parse_url("https://www.google.fr");
             $googleUrl = $googleParsedUrl['host'];
@@ -65,7 +64,7 @@ class ExampleNews
                             "img" => $placeholderImgUrl
                         ]
             ];
-            foreach($reqData as $data){
+            foreach ($reqData as $data) {
                 $object[$data['id']] = new ExampleNews();
                 $object[$data['id']]->setTitle($data['title'])
                                     ->setContent($data['content'])
@@ -77,7 +76,7 @@ class ExampleNews
             return $object;
         }
 
-        public function insertNews() {
+        public function insertNews () {
 
             $response = $this->_dbHandler->Insert(" INSERT INTO news ( title, content, img, link )
             VALUES (:title, :content, :img, :link) ", [
@@ -96,7 +95,7 @@ class ExampleNews
          *
          * @return string
          */
-        public function getTitle(): string {
+        public function getTitle (): string {
             return $this->_title;
         }
         
@@ -107,7 +106,7 @@ class ExampleNews
          * @param  string $title
          * @return object
          */
-        public function setTitle(string $title): object {
+        public function setTitle (string $title): object {
             $this->_title = $title;
             return $this;
         }
@@ -117,7 +116,7 @@ class ExampleNews
          *
          * @return string
          */
-        public function getContent(): string {
+        public function getContent (): string {
             return $this->_content;
         }
         
@@ -127,7 +126,7 @@ class ExampleNews
          * @param  string $content
          * @return object
          */
-        public function setContent(string $content): object {
+        public function setContent (string $content): object {
             $this->_content = $content;
             return $this;
         }
@@ -137,7 +136,7 @@ class ExampleNews
          *
          * @return int
          */
-        public function getId(): int {
+        public function getId (): int {
             return $this->_id;
         }
         
@@ -147,17 +146,17 @@ class ExampleNews
          * @param  int $id
          * @return object
          */
-        public function setId(int $id): object {
+        public function setId (int $id): object {
             $this->_id = $id;
             return $this;
         }
 
 
-        public function getDate() {
+        public function getDate () {
             return $this->_date;
         }
 
-        public function setDate($date) {
+        public function setDate ($date) {
             $this->_date = $date;
             return $this;
         }
@@ -168,7 +167,7 @@ class ExampleNews
          * @param  string $img
          * @return object
          */
-        public function setImg(string $img): object {
+        public function setImg (string $img): object {
             $this->_img = $img;
             return $this;
         }
@@ -178,7 +177,7 @@ class ExampleNews
          *
          * @return string
          */
-        public function getImg(): string {
+        public function getImg (): string {
             return $this->_img;
         }
         
@@ -188,7 +187,7 @@ class ExampleNews
          * @param  mixed $link
          * @return object
          */
-        public function setLink(string $link): object {
+        public function setLink (string $link): object {
             $this->_link = $link;
             return $this;
         }
@@ -198,7 +197,7 @@ class ExampleNews
          *
          * @return string
          */
-        public function getLink(): string {
+        public function getLink (): string {
             return $this->_link;
         }
 
